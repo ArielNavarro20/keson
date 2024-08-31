@@ -7,14 +7,14 @@ import { settingsOutline } from 'ionicons/icons'
 import { RouterModule } from '@angular/router'
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-admin',
+  templateUrl: 'admin.page.html',
+  styleUrls: ['admin.page.scss'],
   standalone: true,
   imports: [ListaDeCitasComponent, RouterModule, IonHeader, IonToolbar, IonTitle, IonContent, 
             IonButtons, IonButton, IonIcon],
 })
-export class HomePage implements OnInit {
+export class AdminPage implements OnInit {
   @ViewChild(ListaDeCitasComponent) listaDeCitasComponent!:ListaDeCitasComponent
 
   constructor() {
@@ -23,10 +23,10 @@ export class HomePage implements OnInit {
     })
   }
   ngOnInit(): void {
-    console.log("HomePage::ngOnInit")
+    console.log("AdminPage::ngOnInit")
   }
   ionViewWillEnter():void {
-    console.log("HomePage::ionViewWillEnter")
+    console.log("AdminPage::ionViewWillEnter")
     this.listaDeCitasComponent.ionViewWillEnter() 
   }
  
