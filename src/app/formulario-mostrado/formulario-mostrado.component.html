@@ -9,8 +9,8 @@
       placeholder="ingresa la cita" 
       labelPlacement="stacked" />
         <ion-button
-          [disabled]="!mostradoInput.valid" 
-          (click)="agregarMostrado();mostradoInput.control.markAsPristine();mostradoInput.control.markAsUntouched()"
+          [disabled]="!mostradoInput.valid || !autorInput.valid" 
+          (click)="agregarMostrado();mostradoInput.control.markAsPristine();mostradoInput.control.markAsUntouched();autorInput.control.markAsPristine();autorInput.control.markAsUntouched()"
           slot="end" 
           fill="clear"
           aria-label="Botón para agregar cita">
@@ -22,5 +22,21 @@
       [hidden]="mostradoInput.valid || mostradoInput.pristine"
       color="danger"
     >Escriba cita de 5 o más letras!</ion-text>
+  </ion-item>
+  <ion-item>
+    <ion-input 
+      [(ngModel)]="autor"     
+      required="required" 
+      minlength="2"
+      #autorInput="ngModel"
+      label="autor de cita" 
+      placeholder="ingrese el autor" 
+      labelPlacement="stacked" />
+  </ion-item>
+  <ion-item>
+    <ion-text 
+      [hidden]="autorInput.valid || autorInput.pristine"
+      color="danger"
+    >Escriba autor de 2 o más letras!</ion-text>
   </ion-item>
 </ion-list>

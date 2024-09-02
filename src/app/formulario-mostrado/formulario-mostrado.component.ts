@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms'
 export class FormularioMostradoComponent  implements OnInit {
 
   mostrado:string = ""
+  autor:string = ""
   @Output() onMostradoAgregado = new EventEmitter<string>()
 
   constructor() { 
@@ -25,7 +26,8 @@ export class FormularioMostradoComponent  implements OnInit {
   ngOnInit() {}
 
   agregarMostrado() {
-    this.onMostradoAgregado.emit(this.mostrado)
+    this.onMostradoAgregado.emit(this.mostrado + "|" + this.autor)
     this.mostrado = ""
+    this.autor = ""
   }
 }

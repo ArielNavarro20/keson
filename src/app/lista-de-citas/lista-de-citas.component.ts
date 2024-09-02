@@ -55,11 +55,12 @@ export class ListaDeCitasComponent  implements OnInit, OnDestroy {
     }
   }
 
-  async agregarMostrado(mostradoStr: string) {    
+  async agregarMostrado(mostradoStr: string) {  
+    const [nombre, autor] = mostradoStr.split("|")  
     const m:Mostrado = {
-      nombre: mostradoStr,
+      nombre: nombre,
       ver: false,
-      autor: ""
+      autor: autor
     }
     await this.mostradoService.agregarMostrado(m)
     await this.actualizar()
