@@ -3,7 +3,7 @@
     <ion-input 
       [(ngModel)]="mostrado"     
       required="required" 
-      minlength="2"
+      minlength="5"
       #mostradoInput="ngModel"
       label="citas por mostrar" 
       placeholder="ingresa la cita" 
@@ -21,6 +21,6 @@
     <ion-text 
       [hidden]="mostradoInput.valid || mostradoInput.pristine"
       color="danger"
-    >Escriba cita de 2 o más letras!</ion-text>
+    >Escriba cita de 5 o más letras!</ion-text>
   </ion-item>
 </ion-list>

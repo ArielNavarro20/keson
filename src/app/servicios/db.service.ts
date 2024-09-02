@@ -77,12 +77,14 @@ export class DbService {
       await this.db.execute(this.DB_SQL_TABLES)
   
       await this.insertar({
-        nombre: "La única forma de hacer un gran trabajo es amar lo que haces   Autor: Steve Jobs",
-        ver: false
+        nombre: "La única forma de hacer un gran trabajo es amar lo que haces",
+        ver: false,
+        autor: "Steve Jobs"
       })
       await this.insertar({
-        nombre: "La mente es todo. Lo que piensas, te conviertes     Autor: Buda ",
-        ver: true
+        nombre: "La mente es todo. Lo que piensas, te conviertes",
+        ver: true,
+        autor: "Buda"
       })
 
       if(this.platform == "web") {

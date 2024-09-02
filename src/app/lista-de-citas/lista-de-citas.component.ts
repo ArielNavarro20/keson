@@ -58,7 +58,8 @@ export class ListaDeCitasComponent  implements OnInit, OnDestroy {
   async agregarMostrado(mostradoStr: string) {    
     const m:Mostrado = {
       nombre: mostradoStr,
-      ver: false
+      ver: false,
+      autor: ""
     }
     await this.mostradoService.agregarMostrado(m)
     await this.actualizar()
@@ -66,6 +67,9 @@ export class ListaDeCitasComponent  implements OnInit, OnDestroy {
 
   async onMostradoChange(m: Mostrado) {
     await this.mostradoService.editar(m)
-    await this.actualizar() 
+    if (m.id) {
+      await this.dbService.eliminar(m.id)
+    }
+    this.actualizar()
   }
 }
