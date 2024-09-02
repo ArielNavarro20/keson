@@ -13,17 +13,17 @@ import { DbService } from '../servicios/db.service';
   standalone: true,
   imports: [FormularioMostradoComponent, ListaDeMostradosComponent]
 })
-export class ListaDeCitasComponent  implements OnInit, OnDestroy {
+export class ListaDeCitasComponent  implements OnInit, OnDestroy { //inicializador y destructor
 
   mostrados:Mostrado[] = []
   ordenarAlfabeticamente:boolean = false 
 
-  constructor(
+  constructor( //para la db
     private dbService:DbService,
     private mostradoService:MostradoService,
     private configuracionService:ConfiguracionService
   ) { }
-  
+  //inicializacion db
   async ngOnInit() {
     console.log("ListaDeCitasComponent::ngOnInit - DbService::iniciarPlugin()")    
     await this.dbService.iniciarPlugin() 
@@ -44,7 +44,7 @@ export class ListaDeCitasComponent  implements OnInit, OnDestroy {
       console.log("dbService AUN NO INICIADO")
     }    
   }
-
+ 
   async actualizar() {
     console.log("actualizando...")
     this.ordenarAlfabeticamente = await this.configuracionService.ordenarRegistros()

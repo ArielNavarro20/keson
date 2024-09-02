@@ -1,4 +1,4 @@
-<ion-list>
+<ion-list> <!--para visualizar nombre y autor ingresados-->
   <ion-item *ngFor="let m of mostrados">
     <ion-label>
       <span>{{ m.nombre }} - Autor: {{ m.autor }}</span>
@@ -7,6 +7,6 @@
       [checked]="m.ver" 
       (ionChange)="onVerChange(m, $event)"
       slot="end" 
-      aria-label="Checkbox que marca si la cita esta vista" />
+      aria-label="Checkbox" />
   </ion-item>  
 </ion-list>

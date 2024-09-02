@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { Routes } from '@angular/router';  //rutas para la pagina admin, configuracion y principal
 
 export const routes: Routes = [
   {
@@ -18,4 +18,9 @@ export const routes: Routes = [
     path: 'principal',
     loadComponent: () => import('./principal/principal.page').then( m => m.PrincipalPage)
   },
+  {
+    path: 'home',
+    loadComponent: () => import('./home/home.page').then( m => m.HomePage)
+  },
+
 ];

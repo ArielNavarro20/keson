@@ -1,16 +1,19 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      App Citas
+      App Citas <!--nombre de la app -->
     </ion-title>
-    <ion-buttons slot="end">
-      <ion-button [routerLink]="['/configuracion']">
+    <ion-buttons slot="end"> <!--botones el primero para la ruta de configuracion page, el otro para homepage -->
+      <ion-button [routerLink]="['/configuracion']"> 
         <ion-icon icon="settings-outline" slot="icon-only" />
+      </ion-button>
+      <ion-button [routerLink]="['/home']"><!--aca el segundo boton de ruta para homepage -->
+        <ion-icon icon="home-outline" slot="icon-only"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true"> 
   <app-lista-de-citas />
 </ion-content> 
