@@ -1,8 +1,7 @@
 <ion-list>
   <ion-item *ngFor="let m of mostrados">
     <ion-label>
-      <s *ngIf="m.ver">{{ m.nombre }}</s>
-      <span *ngIf="!m.ver">{{ m.nombre }}</span>
+      <span>{{ m.nombre }} - Autor: {{ m.autor }}</span>
     </ion-label>
     <ion-checkbox 
       [checked]="m.ver" 

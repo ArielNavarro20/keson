@@ -28,7 +28,8 @@ export class DbService {
     CREATE TABLE IF NOT EXISTS ${this.DB_TABLE_NAME}(
       ${this.DB_COL_ID} INTEGER PRIMARY KEY AUTOINCREMENT,
       ${this.DB_COL_PROD} TEXT NOT NULL,
-      ${this.DB_COL_COMP} INTEGER DEFAULT 0
+      ${this.DB_COL_COMP} INTEGER DEFAULT 0,
+      autor TEXT NOT NULL
     );
   `
   
@@ -75,7 +76,7 @@ export class DbService {
       console.log("db.execute(SQL_TABLES)")
       console.log(this.DB_SQL_TABLES)
       await this.db.execute(this.DB_SQL_TABLES)
-  
+
       await this.insertar({
         nombre: "La única forma de hacer un gran trabajo es amar lo que haces",
         ver: false,
@@ -83,7 +84,7 @@ export class DbService {
       })
       await this.insertar({
         nombre: "La mente es todo. Lo que piensas, te conviertes",
-        ver: true,
+        ver: false,
         autor: "Buda"
       })
 
@@ -112,8 +113,8 @@ export class DbService {
   }
 
   async insertar(mostrado:Mostrado) {
-    const sql = `INSERT INTO ${this.DB_TABLE_NAME}(${this.DB_COL_PROD}, ${this.DB_COL_COMP}) VALUES(?,?)`
-    await this.db.run(sql, [mostrado.nombre, mostrado.ver])
+    const sql = `INSERT INTO ${this.DB_TABLE_NAME}(${this.DB_COL_PROD}, ${this.DB_COL_COMP}, autor) VALUES(?,?,?)`
+    await this.db.run(sql, [mostrado.nombre, mostrado.ver, mostrado.autor])
   }
 
   async actualizar(mostrado:Mostrado) {
